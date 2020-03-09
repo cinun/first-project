@@ -309,7 +309,7 @@ public class CreateDeck {
             Sent current = text_head; 
             output.write("<html class=\"UNO GAME OUTPUT MODEL\" lang=\"en-us\">\n" + "<head>\n" + "   <title>UNO GAME MODEL | GAME OUTPUT </title>\n" +
                           "</head>\n" +" <body>\n" +"<h1>UNO GAME MODEL | GAME OUTPUT</h1>\n"+
-                          "<p><img src=\"header.jpg?raw=true\" alt=\"Workouts\" width=\"500\" height=\"500\" style=\"float:right; margin: 0 0 10px 10px;\" /></p>\n" +                  
+                          "<p><img src=\"https://github.com/cinun/first-project/blob/master/header.jpg?raw=true\" alt=\"Workouts\" width=\"500\" height=\"500\" style=\"float:right; margin: 0 0 10px 10px;\" /></p>\n" +                  
                           "<h2> UNO GAME</h2>\n");
             output.write("<html>"); 
             output.write("<head>"); 
