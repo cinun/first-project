@@ -273,30 +273,34 @@ public class CreateDeck {
 		output.println("</html>"); 
 	}*/
 	
-	public void display_text() throws FileNotFoundException{
-		try {
-			File file = new File("Dataout.html"); 
-			Writer output = new BufferedWriter(new FileWriter(file));
-			Sent current = text_head; 
-			output.write("<html>"); 
-			output.write("<head>"); 
-			output.write("<title>"); 
-			output.write("Uno Game in Html </title>"); 
-			output.write("</head>"); 
-			output.write("<body>"); 
-			while(current!=null) {
-				String table = "<p>"+current.sentence+"</p>";
-				output.write(table);
-				current = current.next;
-			}
-			output.write("</body>"); 
-			output.write("</html>"); 
-			output.close();
-		}catch (IOException e) {
-			System.out.println("Couldn't find any file.\n");
-		}
-		
-	}
+	void display_text() throws FileNotFoundException{
+                try {
+            File file = new File("Dataout.html"); 
+            Writer output = new BufferedWriter(new FileWriter(file));
+            Sent current = text_head; 
+            output.write("<html class=\"UNO GAME OUTPUT MODEL\" lang=\"en-us\">\n" + "<head>\n" + "   <title>UNO GAME MODEL | GAME OUTPUT </title>\n" +
+                          "</head>\n" +" <body>\n" +"<h1>UNO GAME MODEL | GAME OUTPUT</h1>\n"+
+                          "<p><img src=\"header.jpg?raw=true\" alt=\"Workouts\" width=\"500\" height=\"500\" style=\"float:right; margin: 0 0 10px 10px;\" /></p>\n" +                  
+                          "<h2> UNO GAME</h2>\n");
+            output.write("<html>"); 
+            output.write("<head>"); 
+            output.write("<title>"); 
+            output.write("Uno Game in Html </title>"); 
+            output.write("</head>"); 
+            output.write("<body>"); 
+            while(current!=null) {
+                String table = "<p>"+current.sentence+"</p>";
+                output.write(table);
+                current = current.next;
+            }
+            output.write("</body>"); 
+            output.write("</html>"); 
+            output.close();
+        }catch (IOException e) {
+            System.out.println("Couldn't find any file.\n");
+        }
+        
+    }
 	
 	
 	public void play_cards(){
