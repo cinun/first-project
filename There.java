@@ -103,46 +103,43 @@ public class CreateDeck {
 	
 	
 	
-	public void shuffle(int deck_count) {
-		Random r = new Random();
-		Node xyz = head; 
-		int temp, cards_in_the_deck = deck_count *108; 
-		String change_color; 
-		
-		for (int i = 0; i < cards_in_the_deck; i++) {
-			temp = xyz.data;
-			change_color = xyz.color; 
-			
-			int index = r.nextInt((cards_in_the_deck-0)+1);
-			//System.out.println("Your random index is:"+index+"\n");
-			Node current = head; 
-			while(current!= null) { 
-				if (current.index == index) {
-					int x = current.data; 
-					String y = current.color; 
-					current.data = temp;
-					current.color = change_color; 
-					xyz.data = x;
-					xyz.color = y; 
-				}
-				current = current.next; 
-			}
-			if(xyz.next==null)
-				break;
-			xyz = xyz.next; 
-		}
-	}
+/****************************Deck_Class_Start**************************************************/
+//*********************************************************************************************
+/*CS 2365-002, Object Oriented Programming, Spring 2020
+*Prof. Mario. A. Pitalua Rodriguez
+*Name: Bibek Sitaula
+*Project: 02 (UNO Card Game)
+*Date:03/09/2020
+*Project Description:
+*Using the deck of cards Uno, select an exercise for each color.
+*Skip: All the cards of this color that are in the hand are discarded for this hand.
+*+2: The total number of the matching color is multiplied by 2
+*Reverse: All the cards of the matching color return to the bottom of the pile except the “Reverse” card
+*Wild: that is discarded.
+*Wild Draw 4: The presence of this card will add 10 Burpees to the round of exercises of this hand. This card will, in addition, to add the Burpees, multiply by 4 the total of each color.
+*User can choose how many decks to user (1-3)
+*There are 108 cards in a Uno deck. There are four suits, Red, Green, Yellow and Blue. each consisting of one 0 card, two 1 cards, two 2s, 3s, 4s, 5s, 6s, 7s, 8s and 9s; two Draw Two cards; two Skip cards; and two Reverse cards.
+
+*///***************************************************************************************************************************
+/**
+ * @author sitou
+     * @param deck_count
+     * This Class is to create (1-3) deck of each consist of 108 cards for UNO_Game.
+     * And, shuffle the deck cards
+ */
+//****************************************************************************************************************************	
 	
 	public void create_deck(int deck_count) {
 		
-		int cards_present = deck_count *108; 
-		int index = 0, card_count = 13; 
-		String color = "";
+		int cards_present = deck_count *108; // create deck of 108 cards and deck_count is the total number of deck user gone use 
+		int index = 0, card_count = 13; 	// Initilizing index and card_count
+		String color = "";		// Initilizing color as null String
+		/*using for loop it goes until all the card are read*/
 		for (int j = 0; j< deck_count; j++) {
 			int count = 1; 
 			while(count!= 5) {
 				if (count == 1)
-					color = "Blue"; 
+					color = "Blue"; 	//color string stores to specific color name
 				else if (count == 2)
 					color = "Red"; 
 				else if (count == 3)
@@ -177,6 +174,38 @@ public class CreateDeck {
 			}
 	}
 	
+	// shuffle class for UNO game
+	public void shuffle(int deck_count) {
+		Random r = new Random();	//using random function to generate random cards for UNO game
+		Node xyz = head; 
+		int temp, cards_in_the_deck = deck_count *108; 
+		String change_color; 
+		///*using for loop it goes until all the card are read*/
+		for (int i = 0; i < cards_in_the_deck; i++) {
+			temp = xyz.data;
+			change_color = xyz.color; 
+			
+			int index = r.nextInt((cards_in_the_deck-0)+1);
+			//System.out.println("Your random index is:"+index+"\n");
+			Node current = head; 
+			while(current!= null) { 
+				if (current.index == index) {
+					int x = current.data; 
+					String y = current.color; 
+					current.data = temp;
+					current.color = change_color; 
+					xyz.data = x;
+					xyz.color = y; 
+				}
+				current = current.next; 
+			}
+			if(xyz.next==null)
+				break;
+			xyz = xyz.next; 
+		}
+	}	
+	
+/******************************************END_OF_DECK_CLASS*************************************************/
 	public static int findIndex(String arr[], String t) 
     { 
         if (arr == null) { 
