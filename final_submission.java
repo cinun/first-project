@@ -229,7 +229,8 @@ public class CreateDeck {
 					current.next.color = temp_color; 
 					current.next.index = temp_index; 
 				}
-				current = current.next; 
+				if (current!=null)
+					current = current.next; 
 			}
 		}
 	}
